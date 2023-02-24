@@ -31,7 +31,17 @@
         //calculate day
          let d = calculateDay(DD, MM, CC, YY);
 
-        output.innerHTML = `DOB: ${d}`;
+        
+
+        //prepopulated arrays for storing akan names
+        let maleNames = ['Kwasi', 'Kwadwa', 'Kwabena','Kwaku','Yaw','Kofi','Kwame'];
+        let femaleNames = ['Akosua', 'Adwaa', 'Abenaa', 'Akua', 'Yaa', 'Afua', 'Ama'];
+
+        //return Akan names
+        let akanName = matchAkanName(maleNames, femaleNames, d, gender, output);
+        // output.innerHTML = `DOB: ${akanName}`;
+
+
     });
 
 //validate the dob if:
@@ -72,31 +82,30 @@ function calculateDay(DD, MM, CC, YY) {
 
 //put the akan names in 2 arrays for male and female respectively
 
-let maleNames = ['Kwasi', 'Kwadwa', 'Kwabena','Kwaku','Yaw','Kofi','Kwame'];
-let femaleNames = ['Akosua', 'Adwaa', 'Abenaa', 'Akua', 'Yaa', 'Afua', 'Ama'];
+
 //create a function that accepts gender and dob paramenters
 //if gender is male, access the index of day in the malaName's array
 //tell the male user their akan name in the output paragraph
 //else if gender is female access the index of day in the femalaName's array
 //tell the female user their akan name in the output paragraph(create a function)
 //create an event listener click when the button is clicked, the above function is called.
-// btn.addEventListener('click',()=> { 
-//     if (gender === 'male'){
-//         for(let i = 0; i < maleNames.length; i++){
-//             if(i === d){
-//                 output.innerHTML =`Your Akan name is ${maleNames[i]}`;
-//                 break;
-//             }
-//         }
-//     }else if(gender === 'female'){
-//         for(let i = 0; i < femaleNames.length; i++){
-//             if(i === d){
-//                 output.innerHTML =`Your Akan name is ${femaleNames[i]}`;
-//                 break;
-//             }   
-//         }
-//     }else{
-//         output.innerHTML = `An error ocurred! Could not get your Akan Name`;
-//     }
-        
-// });
+
+function matchAkanName(maleNames, femaleNames, d, gender, output){
+    if (gender === 'male'){
+        for(let i = 0; i < maleNames.length; i++){
+            if(i === d){
+                output.innerHTML =`Your Akan name is ${maleNames[i]}`;
+                break;
+            }
+        }
+    }else if(gender === 'female'){
+        for(let i = 0; i < femaleNames.length; i++){
+            if(i === d){
+                output.innerHTML =`Your Akan name is ${femaleNames[i]}`;
+                break;
+            }   
+        }
+    }else{
+        output.innerHTML = `An error ocurred! Could not get your Akan Name`;
+    }
+}      
