@@ -24,7 +24,14 @@
         var year = dobSplit[2];
         var CC = parseInt(year.substring(0,2));
         var YY = parseInt(year.substring(2,4));
-        output.innerHTML = `DOB: ${YY} </br> Gender: ${gender}`;
+        
+
+        //check if the date is valid (COME AND DO THIS LATER!)
+
+        //calculate day
+         let d = calculateDay(DD, MM, CC, YY);
+
+        output.innerHTML = `DOB: ${d}`;
     });
 
 //validate the dob if:
@@ -32,17 +39,26 @@
 //  ii) The date is greater than 0 and less than 31
 // iii) The month is greater than 0 and less than twelve
 
+
+// let invalidDate = isDobValid(dob);
+// if(invalidDate){
+//     output.innerHTML = invalidDate;
+//     return false;
+// }
 // function isDobValid(){
 //     if(!dob || !dob.includes('/')){
 //         return "Please enter your date of birth in the correct format";
 //     }
-//     if(DD > 0 && DD <= 31 && MM > 0 && MM <= 12 && year.length === 4){
-//         let day = Math.floor(( ( (CC/4) -2*CC-1) + ((5*YY/4) ) + ((26*(MM+1)/10)) + DD ) % 7);
-    
-//     return day;
-//     }
 // }
 
+function calculateDay(DD, MM, CC, YY) {
+    // if(DD > 0 && DD <= 31 && MM > 0 && MM <= 12 && year.length === 4){
+        let day = Math.floor(( ( (CC/4) -2*CC-1) + ((5*YY/4) ) + ((26*(MM+1)/10)) + DD ) % 7);    
+    // }
+    return day;
+}
+// let d = calculateDay();
+// console.log(d);
 // output.innerHTML = isDobValid();
 
 
