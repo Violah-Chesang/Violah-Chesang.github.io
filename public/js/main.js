@@ -1,35 +1,31 @@
-//access user dob from the html input fieldand store the dob is a variable called dob
-
-
-    
+//access user dob from the html input field and store the:
+// dob is a variable called dob
+//gender to gender, output para to output and myForm to form    
     
     let form = document.getElementById('myForm');
     
-
+//create an eventlistener that when the form is submitted the code runs
     form.addEventListener("submit", e => {
         e.preventDefault();
         let dob = document.getElementById("dob").value;
         let gender = document.getElementById('gender').value;
         let output = document.getElementById('output');
 
-        output.innerHTML = `DOB: ${dob} </br> Gender: ${gender}`;
+        
+        //once the output is displayed clear the fields
         document.getElementById('dob').value = '';
         document.getElementById('gender').value = '';
-        // return false;
-    
+        
+        //split the output by /
+        var dobSplit = dob.split('/');
+        //variables for day,month, century, and year
+        var DD = parseInt(dobSplit[0]);
+        var MM = parseInt(dobSplit[1]);
+        var year = dobSplit[2];
+        var CC = parseInt(year.substring(0,2));
+        var YY = parseInt(year.substring(2,4));
+        output.innerHTML = `DOB: ${YY} </br> Gender: ${gender}`;
     });
-    // var dobSplit = dob.split('/');
-
-
-
-
-
-// var DD = parseInt(dobSplit[0]);
-// var MM = parseInt(dobSplit[1]);
-// var year = dobSplit[2];
-// console.log(year);
-// var CC = parseInt(year.substring(0,1));
-// var YY = parseInt(year.substring(2,3)); 
 
 //validate the dob if:
 //  i)  It's in the correct format
