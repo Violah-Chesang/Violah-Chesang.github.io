@@ -1,9 +1,48 @@
 *{
     font-family: 'Josefin Sans', sans-serif;
-    border: 0;
+    padding: 0;
     margin: 0;
+    box-sizing: border-box;
+}
+
+.cover{
+    width: 100%;
+    height: 100vh;
     background-image: url(../images/bg_image.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+}
 
+.content{
+    width: 60%;
+    height: 100vh;
+    margin: auto;
+    padding: 30px 20px 20px 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    line-height: 30px;
+    font-size: 17px;
+}
+
+.content h1{
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+form{
+    width: 60%;
+    height: auto;
+    margin: auto;
+    padding: 40px;
+    line-height: 40px;
+}
+
+form button{
+    width: 40%;
+    padding: 10px;
+    margin-top: 15px;
+}
+
+form p{
+    color: #fff;
 }
