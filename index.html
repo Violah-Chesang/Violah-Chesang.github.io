@@ -12,12 +12,33 @@
     <title>Akan Names</title>
 </head>
 <body>
+    <div class="cover">
+        <div class="content">
+            <h1>Akan Name</h1>
+            <p>Would you like to know your name if you used the Akan Naming System?</p></br>
+            <p>The Akan naming system is a Ghanaian naming system in that an individual is given a name according to the day of the week they were born. For example, a boy born on Friday would be called Kofi, and a girl, Afua.</p>
+            <p>Enter your date of birth in the field below to know your Akan Name.</p>
 
+            <form id="myForm">
+                <div class="form_group">
+                    <label for="dob">Date Of Birth: </label>
+                    <input type="text" id="dob" required placeholder="dd/mm/yyyy">
+                </div>
 
+                <div class="form_group">
+                    <label for="gender">Gender: </label>
+                    <select id="gender">
+                        <option value="male" id="male">Male</option>
+                        <option value="female" id="female">Female</option>
+                    </select>                    
+                </div>
 
+                <button id="btn" type="submit" value="submit">Submit</button>
+                <p id="output"></p>
+            </form>
+        </div>
 
-
-    
+    </div>
     <script src="public/js/main.js"></script>    
 </body>
 </html>
