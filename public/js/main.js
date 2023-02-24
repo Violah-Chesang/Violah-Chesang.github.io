@@ -1,65 +1,45 @@
-//access user dob from the html input field and store the:
-// dob is a variable called dob
-//gender to gender, output para to output and myForm to form    
-    
-    let form = document.getElementById('myForm');
+//form variable
+let form = document.getElementById('myForm');
     
 //create an eventlistener that when the form is submitted the code runs
-    form.addEventListener("submit", e => {
-        e.preventDefault();
-        let dob = document.getElementById("dob").value;
-        let gender = document.getElementById('gender').value;
-        let output = document.getElementById('output');
+form.addEventListener("submit", e => {
+    e.preventDefault();
+    let dob = document.getElementById("dob").value;
+    let gender = document.getElementById('gender').value;
+    let output = document.getElementById('output');
 
         
-        //once the output is displayed clear the fields
-        document.getElementById('dob').value = '';
-        document.getElementById('gender').value = '';
+    //once the output is displayed clear the fields
+    document.getElementById('dob').value = '';
+    document.getElementById('gender').value = '';
         
-        //split the output by /
-        var dobSplit = dob.split('/');
-        //variables for day,month, century, and year
-        var DD = parseInt(dobSplit[0]);
-        var MM = parseInt(dobSplit[1]);
-        var year = dobSplit[2];
-        var CC = parseInt(year.substring(0,2));
-        var YY = parseInt(year.substring(2,4));
+    //split the output by /
+    var dobSplit = dob.split('/');
+    //variables for day,month, century, and year
+    var DD = parseInt(dobSplit[0]);
+    var MM = parseInt(dobSplit[1]);
+    var year = dobSplit[2];
+    var CC = parseInt(year.substring(0,2));
+    var YY = parseInt(year.substring(2,4));
+    
+
+    //check if the date is valid (COME AND DO THIS LATER!)
+
+    //calculate day
+     let d = calculateDay(DD, MM, CC, YY);
+
         
 
-        //check if the date is valid (COME AND DO THIS LATER!)
+    //prepopulated arrays for storing akan names
+    let maleNames = ['Kwasi', 'Kwadwa', 'Kwabena','Kwaku','Yaw','Kofi','Kwame'];
+    let femaleNames = ['Akosua', 'Adwaa', 'Abenaa', 'Akua', 'Yaa', 'Afua', 'Ama'];
 
-        //calculate day
-         let d = calculateDay(DD, MM, CC, YY);
-
-        
-
-        //prepopulated arrays for storing akan names
-        let maleNames = ['Kwasi', 'Kwadwa', 'Kwabena','Kwaku','Yaw','Kofi','Kwame'];
-        let femaleNames = ['Akosua', 'Adwaa', 'Abenaa', 'Akua', 'Yaa', 'Afua', 'Ama'];
-
-        //return Akan names
-        let akanName = matchAkanName(maleNames, femaleNames, d, gender, output);
-        // output.innerHTML = `DOB: ${akanName}`;
+    //return Akan names
+    let akanName = matchAkanName(maleNames, femaleNames, d, gender, output);
 
 
-    });
+});
 
-//validate the dob if:
-//  i)  It's in the correct format
-//  ii) The date is greater than 0 and less than 31
-// iii) The month is greater than 0 and less than twelve
-
-
-// let invalidDate = isDobValid(dob);
-// if(invalidDate){
-//     output.innerHTML = invalidDate;
-//     return false;
-// }
-// function isDobValid(){
-//     if(!dob || !dob.includes('/')){
-//         return "Please enter your date of birth in the correct format";
-//     }
-// }
 
 function calculateDay(DD, MM, CC, YY) {
     // if(DD > 0 && DD <= 31 && MM > 0 && MM <= 12 && year.length === 4){
@@ -67,28 +47,7 @@ function calculateDay(DD, MM, CC, YY) {
     // }
     return day;
 }
-// let d = calculateDay();
-// console.log(d);
-// output.innerHTML = isDobValid();
 
-
-//if all the above conditions are met, store the following variables:
-// DD- Date of birth
-// MM- Month
-// CC- Century
-// YY- Year
-//use the given formula to caldulate day of the week and store it in the day variable
-
-
-//put the akan names in 2 arrays for male and female respectively
-
-
-//create a function that accepts gender and dob paramenters
-//if gender is male, access the index of day in the malaName's array
-//tell the male user their akan name in the output paragraph
-//else if gender is female access the index of day in the femalaName's array
-//tell the female user their akan name in the output paragraph(create a function)
-//create an event listener click when the button is clicked, the above function is called.
 
 function matchAkanName(maleNames, femaleNames, d, gender, output){
     if (gender === 'male'){
@@ -108,4 +67,4 @@ function matchAkanName(maleNames, femaleNames, d, gender, output){
     }else{
         output.innerHTML = `An error ocurred! Could not get your Akan Name`;
     }
-}      
+} 
