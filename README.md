@@ -37,4 +37,7 @@ This project was build using:
 
 **Email:** chesangv21@gmail.com
 
-//Licence and Copyright information.
+
+## Licence and Copyright information.
+
+Copyright &copy; **Violah Chesang 2023**
