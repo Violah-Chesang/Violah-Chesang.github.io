@@ -40,4 +40,4 @@ This project was build using:
 
 ## Licence and Copyright information.
 
-Copyright &copy; **Violah Chesang 2023**
+Copyright &copy;2023 **Violah Chesang**
