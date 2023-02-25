@@ -15,7 +15,13 @@ This project is open source and anyone interested in using it can do so.
 
 Clone the github repository and on your local machine do a git pull request.
 
-//BDD.
+## BDD (Behavior-Driven Development)
+
+The main feature of the Akan Naming System project is an Akan name is displayed for the user once they enter their date of birth and gender.
+
+Once the user is on the website and has entered their Date of Birth, gender and click the submit button, the user should expect to see their Akan name.
+
+
 ## Technologies used.
 
 This project was build using:
