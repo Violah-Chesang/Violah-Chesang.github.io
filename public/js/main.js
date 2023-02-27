@@ -23,9 +23,13 @@ form.addEventListener("submit", e => {
     var YY = parseInt(year.substring(2,4));
     
 
-    //check if the date is valid (COME AND DO THIS LATER!)
+    //check if the date is valid
 
     let dobValidation = validation(DD, MM, year);
+    if(!dobValidation) {
+        return output.innerHTML = 'Please enter a valid date of birth and should be in the correct format of dd/mm/yyyy.';
+    }
+
 
     //calculate day
      let d = calculateDay(DD, MM, CC, YY);
@@ -44,8 +48,8 @@ form.addEventListener("submit", e => {
 
 
 function calculateDay(DD, MM, CC, YY) {
-    let day = Math.floor(( ( (CC/4) -2*CC-1) + ((5*YY/4) ) + ((26*(MM+1)/10)) + DD ) % 7);
-    return day;
+        let day = Math.floor(( ( (CC/4) -2*CC-1) + ((5*YY/4) ) + ((26*(MM+1)/10)) + DD ) % 7);
+        return day;
 }
 
 
@@ -72,8 +76,8 @@ function matchAkanName(maleNames, femaleNames, d, gender, output){
 //validate day, month and the length of year
 function validation(DD, MM, year) {
     if(DD > 0 && DD <= 31 && MM > 0 && MM <= 12 && year.length === 4) {
-        return DD, MM, year;
+        return true;
     }else{
-        return 'Please enter a valid date of birth and should be in the correct format of dd/mm/yyyy.';
+        return false;
     }
 }
