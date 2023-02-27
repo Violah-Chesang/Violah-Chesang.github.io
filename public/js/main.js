@@ -51,22 +51,14 @@ function calculateDay(DD, MM, CC, YY) {
         let day = Math.floor(( ( (CC/4) -2*CC-1) + ((5*YY/4) ) + ((26*(MM+1)/10)) + DD ) % 7);
         return day;
 }
-
-
+//Instead of the loop, you can index the list directly with variable ‘d’. That is instead of using i which is checked against d
 function matchAkanName(maleNames, femaleNames, d, gender, output){
     if (gender === 'male'){
-        for(let i = 0; i < maleNames.length; i++){
-            if(i === d){
-                output.innerHTML =`Your Akan name is ${maleNames[i]}`;
-                break;
-            }
-        }
+                output.innerHTML =`Your Akan name is ${maleNames[d]}`;
+
     }else if(gender === 'female'){
-        for(let i = 0; i < femaleNames.length; i++){
-            if(i === d){
-                output.innerHTML =`Your Akan name is ${femaleNames[i]}`;                
-            }
-        }
+                output.innerHTML =`Your Akan name is ${femaleNames[d]}`;  
+                
     }else{
         output.innerHTML = `An error ocurred! Could not get your Akan Name`;
     }
