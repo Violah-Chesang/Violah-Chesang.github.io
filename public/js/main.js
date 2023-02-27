@@ -25,6 +25,8 @@ form.addEventListener("submit", e => {
 
     //check if the date is valid (COME AND DO THIS LATER!)
 
+    let dobValidation = validation(DD, MM, year);
+
     //calculate day
      let d = calculateDay(DD, MM, CC, YY);
 
@@ -42,9 +44,7 @@ form.addEventListener("submit", e => {
 
 
 function calculateDay(DD, MM, CC, YY) {
-    // if(DD > 0 && DD <= 31 && MM > 0 && MM <= 12 && year.length === 4){
-        let day = Math.floor(( ( (CC/4) -2*CC-1) + ((5*YY/4) ) + ((26*(MM+1)/10)) + DD ) % 7);    
-    // }
+    let day = Math.floor(( ( (CC/4) -2*CC-1) + ((5*YY/4) ) + ((26*(MM+1)/10)) + DD ) % 7);
     return day;
 }
 
@@ -60,11 +60,20 @@ function matchAkanName(maleNames, femaleNames, d, gender, output){
     }else if(gender === 'female'){
         for(let i = 0; i < femaleNames.length; i++){
             if(i === d){
-                output.innerHTML =`Your Akan name is ${femaleNames[i]}`;
-                break;
-            }   
+                output.innerHTML =`Your Akan name is ${femaleNames[i]}`;                
+            }
         }
     }else{
         output.innerHTML = `An error ocurred! Could not get your Akan Name`;
     }
-} 
+}
+
+
+//validate day, month and the length of year
+function validation(DD, MM, year) {
+    if(DD > 0 && DD <= 31 && MM > 0 && MM <= 12 && year.length === 4) {
+        return DD, MM, year;
+    }else{
+        return 'Please enter a valid date of birth and should be in the correct format of dd/mm/yyyy.';
+    }
+}
