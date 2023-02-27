@@ -7,7 +7,6 @@ form.addEventListener("submit", e => {
     let dob = document.getElementById("dob").value;
     let gender = document.getElementById('gender').value;
     let output = document.getElementById('output');
-
         
     //once the output is displayed clear the fields
     document.getElementById('dob').value = '';
@@ -23,7 +22,7 @@ form.addEventListener("submit", e => {
     var YY = parseInt(year.substring(2,4));
     
 
-    //check if the date is valid
+    //check if the dob is valid
 
     let dobValidation = validation(DD, MM, year);
     if(!dobValidation) {
@@ -42,14 +41,12 @@ form.addEventListener("submit", e => {
 
     //return Akan names
     let akanName = matchAkanName(maleNames, femaleNames, d, gender, output);
-
-
 });
 
 
 function calculateDay(DD, MM, CC, YY) {
-        let day = Math.floor(( ( (CC/4) -2*CC-1) + ((5*YY/4) ) + ((26*(MM+1)/10)) + DD ) % 7);
-        return day;
+    let day = Math.floor(( ( (CC/4) -2*CC-1) + ((5*YY/4) ) + ((26*(MM+1)/10)) + DD ) % 7);
+    return day;
 }
 //Instead of the loop, you can index the list directly with variable ‘d’. That is instead of using i which is checked against d
 function matchAkanName(maleNames, femaleNames, d, gender, output){
@@ -58,7 +55,7 @@ function matchAkanName(maleNames, femaleNames, d, gender, output){
 
     }else if(gender === 'female'){
                 output.innerHTML =`Your Akan name is ${femaleNames[d]}`;  
-                
+
     }else{
         output.innerHTML = `An error ocurred! Could not get your Akan Name`;
     }
